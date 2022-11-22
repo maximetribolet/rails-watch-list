@@ -8,7 +8,12 @@
 
 require "json"
 require "open-uri"
-100.times do |number|
+
+puts "starting"
+
+Movie.destroy_all
+
+30.times do |number|
 
   url = "https://api.themoviedb.org/3/movie/top_rated?api_key=67398bb20877a3a8d66d2961b9ff2f3d&language=en-US&page=#{number + 1}"
 
@@ -24,3 +29,5 @@ require "open-uri"
     p @movie = Movie.create!(title: titles, overview: overview, poster_url: poster_url, rating: rating)
   end
 end
+
+puts "Done"

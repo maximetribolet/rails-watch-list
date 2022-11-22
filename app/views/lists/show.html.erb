@@ -4,6 +4,8 @@
     <li><%= bookmark.movie.title %></li>
     <p><%= bookmark.movie.overview %></p>
     <p>Rating: <%= bookmark.movie.rating %></p>
+    <%= image_tag "https://image.tmdb.org/t/p/original#{bookmark.movie.poster_url}", class: 'movie-img rounded-top', width: 400, crop: :fill%>
+
         <p>comment: <%= bookmark.comment %></p>
     <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete} %>
     <% end %>
